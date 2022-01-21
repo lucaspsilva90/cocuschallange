@@ -1,5 +1,5 @@
 {
-  "name": "cocuschallange",
+  "name": "cocuschallenge",
   "version": "1.0.0",
   "description": "Challenge consuming github API",
   "main": "index.js",
