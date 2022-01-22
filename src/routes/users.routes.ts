@@ -6,6 +6,6 @@ const usersRoutes = Router();
 
 const listUserRepositoriesController = new ListUserRepositoriesController();
 
-usersRoutes.post('/repositories/list', listUserRepositoriesController.handle);
+usersRoutes.post('/repositories', listUserRepositoriesController.handle);
 
 export { usersRoutes };
