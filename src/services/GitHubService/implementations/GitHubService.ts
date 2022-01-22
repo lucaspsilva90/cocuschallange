@@ -1,10 +1,11 @@
 import { Octokit } from '@octokit/rest';
 
+import { config } from '../../../config'
 import { IGitHubService } from '../IGitHubService';
 
 class GitHubService implements IGitHubService {
   private octokit = new Octokit({
-    auth: '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',
+    auth: config.gitHubToken,
   });
 
   async searchReposByUserName(user: string) {
