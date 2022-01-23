@@ -21,6 +21,7 @@ class ListUserRepositoriesController {
       const listUserRepositoriesUseCase = container.resolve(ListUserRepositoriesUseCase);
       const data = await listUserRepositoriesUseCase.execute(user);
       return response.status(200).json(data);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       return response.status(error.response.status).json({
         status: error.response.status,
