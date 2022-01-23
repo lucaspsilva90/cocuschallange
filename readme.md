@@ -32,6 +32,10 @@ It's able to receive an user at the request and return all no forked repositorie
 * Run `docker-compose up` or `docker build .` then `docker run {image}`
 * *POST* http://localhost:3000/user/repositories a JSON body contaning `user: string`
 * Also you can access http://localhost:3000/user/api-docs endpoint to access swagger documentation
+  
+## How to run tests
+
+* Run the test script with the command `npm run test` or `npm t`
 
 ## Author
 
