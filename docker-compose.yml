@@ -3,6 +3,8 @@ services:
   app:
     build: .
     container_name: cocuschallenge
+    environment:
+       GITHUB_TOKEN: "${GITHUB_TOKEN}"
     ports:
       - 3000:3000
     volumes:
