@@ -1,6 +1,6 @@
 import { Octokit } from '@octokit/rest';
 
-import { config } from '../../../config'
+import { config } from '../../../config';
 import { IGitHubService } from '../IGitHubService';
 
 class GitHubService implements IGitHubService {
@@ -14,8 +14,8 @@ class GitHubService implements IGitHubService {
   }
 
   async searchBranchesByName(user: string, repository: string) {
-    const { data } = await this.octokit.request(`GET /repos/${user}/${repository}/branches`);
-    return data;
+    const response = await this.octokit.request(`GET /repos/${user}/${repository}/branches`);
+    return response;
   }
 }
 

@@ -2,7 +2,8 @@ import 'reflect-metadata';
 import { inject, injectable } from 'tsyringe';
 
 import { IGitHubService } from '../../../../services/GitHubService/IGitHubService';
-import { User } from '../../Entities/User';
+import { Branch } from '../../Entities/Branch';
+import { Repository } from '../../Entities/Repository';
 
 @injectable()
 class ListUserRepositoriesUseCase {
@@ -12,8 +13,8 @@ class ListUserRepositoriesUseCase {
   ) { }
 
   async getAndParseBranchData(user: string, repository: string) {
-    const data = await this.gitHubService.searchBranchesByName(user, repository);
-    const branchData = data.map((branch) => ({
+    const { data } = await this.gitHubService.searchBranchesByName(user, repository);
+    const branchData = data.map((branch: Branch) => ({
       name: branch.name,
       lastCommit: branch.commit.sha,
     }));
@@ -23,8 +24,8 @@ class ListUserRepositoriesUseCase {
   async getAndParseUserData(user: string) {
     const { data } = await this.gitHubService.searchReposByUserName(user);
 
-    const userData = await Promise.all(data.filter((repo) => !repo.fork)
-      .map(async (repository) => ({
+    const userData = await Promise.all(data.filter((repo: Repository) => !repo.fork)
+      .map(async (repository: Repository) => ({
         ownerUsername: repository.owner.login,
         repositoryName: repository.name,
         branches: await this.getAndParseBranchData(user, repository.name),
