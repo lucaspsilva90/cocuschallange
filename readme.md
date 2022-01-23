@@ -24,14 +24,14 @@ It's able to receive an user at the request and return all no forked repositorie
 * Run `npm install`
 * Run `npm run dev`
 * *POST* http://localhost:3000/user/repositories a JSON body contaning `user: string`
-* Also you can access http://localhost:3000/user/api-docs endpoint to access swagger documentation
+* Also you can access http://localhost:3000/api-docs endpoint to access swagger documentation
 
 2 - Running using docker
 
 * Create a .env file with GITHUB_TOKEN variable passing your auth token as value
 * Run `docker-compose up` or `docker build .` then `docker run {image}`
 * *POST* http://localhost:3000/user/repositories a JSON body contaning `user: string`
-* Also you can access http://localhost:3000/user/api-docs endpoint to access swagger documentation
+* Also you can access http://localhost:3000/api-docs endpoint to access swagger documentation
   
 ## How to run tests
 
